@@ -1,10 +1,17 @@
 {
     "users": [
         {
-            "id": "0", "firstName": "Ant", "age": 26
+            "id": "0", "firstName": "Ant", "age": 26, "companyId": "1"
         },
         {
-            "id": "1", "firstName": "Ira", "age": 25
+            "id": "1", "firstName": "Ira", "age": 25, "companyId": "0"
+        },
+        {
+            "id": "2", "firstName": "Ulia", "age": 22, "companyId": "1"
         }
+    ],
+    "companies": [
+        { "id": "0", "name": "Apple", "des": "iPhone" },
+        { "id": "1", "name": "Nokia", "des": "65-00" }
     ]
 }
