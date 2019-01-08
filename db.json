@@ -1,27 +1,33 @@
 {
   "users": [
     {
-      "id": "0",
+      "firstName": "Samantha",
+      "age": 26,
+      "id": 1
+    },
+    {
       "firstName": "Ant",
       "age": 26,
-      "companyId": "1"
+      "companyId": "antCorparation",
+      "id": 2
     },
     {
-      "id": "1",
-      "firstName": "Ira",
-      "age": 25,
-      "companyId": "0"
-    },
-    {
-      "id": "2",
-      "firstName": "Uli",
-      "age": 22,
-      "companyId": "1"
-    },
-    {
-      "firstName": "ant",
+      "firstName": "Assa",
       "age": 26,
-      "id": "L7-o9NY"
+      "companyId": "antCorparation",
+      "id": 3
+    },
+    {
+      "firstName": "Assa",
+      "age": 26,
+      "companyId": "antCorparation",
+      "id": 4
+    },
+    {
+      "firstName": "Assa",
+      "age": 26,
+      "companyId": "antCorparation",
+      "id": 5
     }
   ],
   "companies": [

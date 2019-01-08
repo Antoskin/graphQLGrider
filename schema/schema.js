@@ -34,6 +34,7 @@ const CompanyType = new GraphQLObjectType({
         id: { type: GraphQLString },
         firstName: { type: GraphQLString },
         age: { type: GraphQLInt },
+        companyId: { type: GraphQLInt },
         company: {
             type: CompanyType,
             resolve(parent, args) {
@@ -94,10 +95,20 @@ const mutation = new GraphQLObjectType({
                 age: { type: new GraphQLNonNull(GraphQLInt) },
                 companyId: { type: GraphQLString }
             },
-            resolve( parent, { firstName, age } ) {
-                return axios.post(`http://localhost:3000/users`, { firstName, age })
+            resolve( parent, { firstName, age, companyId } ) {
+                return axios.post(`http://localhost:3000/users`, { firstName, age, companyId })
                     .then( res => res.data )
             }
+        },
+        removeUser: {
+            type: UserType,
+            args: {
+                id: { type: new GraphQLNonNull(GraphQLString) }
+            },
+            resolve( parent, { id } ) {
+                return axios.delete(`http://localhost:3000/users/${id}`)
+                    .then( res => res.data )
+            } 
         },
         addCompany: {
             type: CompanyType,
@@ -107,6 +118,28 @@ const mutation = new GraphQLObjectType({
             },
             resolve(parent, { name, des } ) {
                 return axios.post(`http://localhost:3000/companies`, { name, des })
+                    .then( res => res.data )
+            }
+        },
+        removeCompany: {
+            type: CompanyType,
+            args: {
+                id: { type: new GraphQLNonNull(GraphQLString) }
+            },
+            resolve(parent, { id }) {
+                return axios.delete(`http://localhost:3000/companies/${id}`)
+                    .then( res => res.data )
+            }
+        },
+        editUser: {
+            type: UserType,
+            args: {
+                id: { type: new GraphQLNonNull(GraphQLString) },
+                firstName: { type: GraphQLString },
+                age: { type: GraphQLInt },
+            },
+            resolve(parent, args) {
+                return axios.patch(`http://localhost:3000/users/${args.id}`, args )
                     .then( res => res.data )
             }
         }
