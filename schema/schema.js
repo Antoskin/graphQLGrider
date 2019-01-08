@@ -142,6 +142,18 @@ const mutation = new GraphQLObjectType({
                 return axios.patch(`http://localhost:3000/users/${args.id}`, args )
                     .then( res => res.data )
             }
+        },
+        editCompany: {
+            type: CompanyType,
+            args: {
+                id: { type: new GraphQLNonNull(GraphQLString) },
+                name: { type: GraphQLString },
+                des: { type: GraphQLString },
+            },
+            resolve(parent, args) {
+                return axios.patch(`http://localhost:3000/companies/${args.id}`, args)
+                    .then( res => res.data )
+            }
         }
     }
 });
